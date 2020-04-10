@@ -1,0 +1,3 @@
+IMPORTANT!
+Run s1.cmd twice with admin.
+s2.exe Is edgedeflector and is not owned by me.

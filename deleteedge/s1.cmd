@@ -1,5 +1,12 @@
-cd C:\Windows\SystemApps
-icacls icacls c:pssecret.docx /setowner %username% /T /C /L /Q
-icacls "C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /grant %username%:(OI)(CI)F /T
-takeown /f C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe /r /d y
-RD /S /Q C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe
+@echo off
+color 17
+title DeleteEdgeBrowser (1.00)
+@echo Press any key to delete both edge browsers.
+pause
+@echo Deleting...
+icacls "C:\Users\%username%\AppData\Local\Microsoft\WindowsApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /grant %username%:(F)
+icacls file "C:\Users\%username%\AppData\Local\Microsoft\WindowsApps\MicrosoftEdge.exe" /grant %username%:(F)
+takeown /F "C:\Users\%username%\AppData\Local\Microsoft\WindowsApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /r /d y
+takeown /F "C:\Users\%username%\AppData\Local\Microsoft\WindowsApps\MicrosoftEdge.exe"
+rd "C:\Users\%username%\AppData\Local\Microsoft\WindowsApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe"
+del /f "C:\Users\%username%\AppData\Local\Microsoft\WindowsApps\MicrosoftEdge.exe"
